@@ -1,3 +1,4 @@
-import TopHeader from "./src/TopHeader";
+import Topbar from "./src/Topbar";
+import Sidebar from "./src/Sidebar";
 
-export { TopHeader };
+export { Topbar, Sidebar };

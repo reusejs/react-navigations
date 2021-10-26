@@ -8,7 +8,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const TopHeader = function ({ navigation, profilePictureUrl, teams }) {
+const Topbar = function ({
+  navigation,
+  profilePictureUrl,
+  teams,
+  logo = "Teurons",
+}) {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -29,7 +34,7 @@ const TopHeader = function ({ navigation, profilePictureUrl, teams }) {
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <div className="h-8 w-auto font-bold text-2xl tracking-wide">
-                    Teurons
+                    {logo}
                   </div>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
@@ -87,4 +92,4 @@ const TopHeader = function ({ navigation, profilePictureUrl, teams }) {
   );
 };
 
-export default TopHeader;
+export default Topbar;
