@@ -11,6 +11,7 @@ const Template = (args) => <Topbar {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
+  logo: "Teurons",
   navigation: [
     { name: "Dashboard", href: "#", current: true },
     { name: "Team", href: "#", current: false },
