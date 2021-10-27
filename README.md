@@ -6,9 +6,9 @@
 [![Storybook][storybook-action-image]][storybook-action-url]
 [![NPM Publish][npm-publish-action-image]][npm-publish-action-url]
 
-# React navigations
+# React Navigations
 
-View Storybook at: https://master--617258d6729860003a3d6e10.chromatic.com
+View Storybook at: https://master--61797fbed9a2d4003a4bc570.chromatic.com
 
 ### Where to write components?
 
@@ -55,7 +55,7 @@ Once your pull request is made, a release would be schedule which will push the 
 
  ## License
 
-react-button is freely distributable under the terms of the [MIT license][license-url].
+react-navigations is freely distributable under the terms of the [MIT license][license-url].
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
@@ -67,7 +67,7 @@ react-button is freely distributable under the terms of the [MIT license][licens
 [npm-downloads-url]: https://npmcharts.com/compare/@reusejs/react-navigations?minimal=true
 
 [view-storybook-image]: https://img.shields.io/badge/View-Storybook-F59E0B.svg
-[view-storybook-url]: https://master--617258d6729860003a3d6e10.chromatic.com
+[view-storybook-url]: https://master--61797fbed9a2d4003a4bc570.chromatic.com
 
 [join-discord-image]: https://img.shields.io/badge/Join-Discord-7389D8.svg
 [join-discord-url]: https://discord.gg/VUa9SHvvDb
