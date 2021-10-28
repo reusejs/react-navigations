@@ -9,7 +9,7 @@ function classNames(...classes) {
 }
 
 const Topbar = function ({
-  navigation,
+  navigation = [],
   profilePictureUrl,
   teams,
   logo = "Teurons",
