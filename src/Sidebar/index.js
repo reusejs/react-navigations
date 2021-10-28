@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "../tailwind.css";
 import { XIcon } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
+import { BaseButton } from "@reusejs/react-buttons";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,6 +23,7 @@ const Sidebar = function ({
   return (
     <>
       <div>Helloo</div>
+      <BaseButton>Hello Button</BaseButton>
     </>
   );
 };
