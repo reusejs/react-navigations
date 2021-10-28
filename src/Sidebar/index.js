@@ -146,7 +146,7 @@ const Sidebar = function ({
             <div className="flex-grow mt-5 flex flex-col">
               <div className="flex-1 space-y-1">
                 {navigation &&
-                  navigation.map((item) => (
+                  navigation.map((item, i) => (
                     <a
                       key={`nav3${i}`}
                       href={item.href}
@@ -173,7 +173,7 @@ const Sidebar = function ({
             </div>
             <div className="flex-shrink-0 block w-full">
               {secondaryNavigation &&
-                secondaryNavigation.map((item) => (
+                secondaryNavigation.map((item, i) => (
                   <a
                     key={`nav4${i}`}
                     href={item.href}
