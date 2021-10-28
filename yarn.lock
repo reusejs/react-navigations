@@ -1389,6 +1389,11 @@
   resolved "https://registry.yarnpkg.com/@reusejs/react-buttons/-/react-buttons-0.0.12.tgz#1a9b8cfd20e3280d808e71117d45f87f9929d8af"
   integrity sha512-gCEzRKOFWnDIXV+I1JgN/Qmf5lGlKpLPMM7GFxTTltf3BB2BZuYWPaEQi2p9VLD/Id9Q3O25Hrxq5AVAghdKUA==
 
+"@reusejs/react-dropdowns@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@reusejs/react-dropdowns/-/react-dropdowns-0.0.1.tgz#db4a895675baa2d21a1254b65d45da7bea12296a"
+  integrity sha512-EuUYe22hlTaM9b7Zb07uXygUvvjzqUgqyrSPFcbB+RToDfmT/1ybvPgX520Jr5gDA7TpLQk9uDNAw6JyvFctSA==
+
 "@rollup/plugin-babel@^5.3.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
