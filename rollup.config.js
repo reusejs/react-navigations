@@ -14,7 +14,7 @@ export default {
     },
   ],
   preserveModules: true,
-  external: ["react", "react-dom", "react-dropdowns"],
+  external: ["react", "react-dom"],
   plugins: [
     babel({
       babelHelpers: "bundled",
