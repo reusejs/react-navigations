@@ -15,6 +15,11 @@ const Sidebar = function ({
   secondaryNavigation,
   router,
 }) {
+  console.log("check here sidebarOpen", sidebarOpen);
+  console.log("check here navigation", navigation);
+  console.log("check here secondaryNavigation", secondaryNavigation);
+  console.log("check here router", router);
+
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
