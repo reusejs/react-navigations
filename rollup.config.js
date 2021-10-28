@@ -4,7 +4,7 @@ import babel from "@rollup/plugin-babel";
 import postcss from "rollup-plugin-postcss";
 
 export default {
-  input: ["index.js", "src/Sidebar/index.js"],
+  input: ["index.js", "src/Sidebar/index.js", "src/Topbar/index.js"],
   output: [
     {
       dir: "build",
