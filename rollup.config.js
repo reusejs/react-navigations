@@ -24,7 +24,7 @@ export default {
     commonjs({
       // non-CommonJS modules will be ignored, but you can also
       // specifically include/exclude files
-      include: ["node_modules/@reusejs/**", "node_modules/next/**"],
+      // include: ["node_modules/@reusejs/**"],
     }),
     postcss({
       config: {

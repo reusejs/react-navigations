@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import "../tailwind.css";
 import { XIcon } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
-import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
