@@ -21,11 +21,7 @@ export default {
       exclude: "node_modules/**",
     }),
     resolve(),
-    commonjs({
-      // non-CommonJS modules will be ignored, but you can also
-      // specifically include/exclude files
-      // include: ["node_modules/@reusejs/**"],
-    }),
+    commonjs(),
     postcss({
       config: {
         path: "./postcss.config.js",
