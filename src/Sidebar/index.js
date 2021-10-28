@@ -79,8 +79,9 @@ const Sidebar = function ({
                 <nav className="h-full flex flex-col">
                   <div className="space-y-1">
                     {navigation &&
-                      navigation.map((item) => (
+                      navigation.map((item, i) => (
                         <a
+                          key={`nav1${i}`}
                           href={item.href}
                           className={classNames(
                             item.href === router.asPath
@@ -107,8 +108,9 @@ const Sidebar = function ({
                   </div>
                   <div className="mt-auto pt-10 space-y-1">
                     {secondaryNavigation &&
-                      secondaryNavigation.map((item) => (
+                      secondaryNavigation.map((item, i) => (
                         <a
+                          key={`nav2${i}`}
                           key={item.name}
                           href={item.href}
                           className="group border-l-4 border-transparent py-2 px-3 flex items-center text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
@@ -146,6 +148,7 @@ const Sidebar = function ({
                 {navigation &&
                   navigation.map((item) => (
                     <a
+                      key={`nav3${i}`}
                       href={item.href}
                       className={classNames(
                         item.href === router.asPath
@@ -172,6 +175,7 @@ const Sidebar = function ({
               {secondaryNavigation &&
                 secondaryNavigation.map((item) => (
                   <a
+                    key={`nav4${i}`}
                     href={item.href}
                     className="group border-l-4 border-transparent py-2 px-3 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                   >
