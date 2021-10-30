@@ -2,17 +2,15 @@ import React from "react";
 import "../tailwind.css";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { DropdownMenu } from "@reusejs/react-dropdowns";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Topbar = function ({
-  navigation = [],
-  profilePictureUrl,
-  teams,
   logo = "Teurons",
+  navigation = [],
+  customComponent = "",
 }) {
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -60,10 +58,7 @@ const Topbar = function ({
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <DropdownMenu
-                  profilePictureUrl={profilePictureUrl}
-                  teams={teams}
-                />
+                {customComponent}
               </div>
             </div>
           </div>

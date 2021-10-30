@@ -7,7 +7,6 @@ export default {
 };
 
 const Template = (args) => <Topbar {...args} />;
-
 export const Default = Template.bind({});
 
 Default.args = {
@@ -18,10 +17,13 @@ Default.args = {
     { name: "Projects", href: "#", current: false },
     { name: "Calendar", href: "#", current: false },
   ],
-  profilePictureUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  teams: [
-    { name: "Beta", href: "#", current: false },
-    { name: "Betalectic", href: "#", current: true },
-  ],
+  customComponent: (
+    <img
+      className="h-8 w-8 rounded-full"
+      src={
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+      }
+      alt=""
+    />
+  ),
 };
