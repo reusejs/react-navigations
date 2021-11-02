@@ -7,12 +7,27 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+const DefaultLink = (props) => {
+  let { href, children, ...rest } = props;
+  return (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  );
+};
+
 const Sidebar = function ({
+  logo = "",
   sidebarOpen = false,
   onPress,
   navigation = [],
   secondaryNavigation = [],
   router = { asPath: "/" },
+  linkStyle,
+  activeLinkStyle,
+  iconStyle,
+  activeIconStyle,
+  CustomLink = DefaultLink,
 }) {
   return (
     <>
@@ -65,7 +80,7 @@ const Sidebar = function ({
               </Transition.Child>
               <div className="flex-shrink-0 px-4 flex items-center">
                 <h3 className="h-8 w-auto font-bold text-2xl tracking-wide">
-                  teurons
+                  {logo}
                 </h3>
               </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
@@ -73,47 +88,68 @@ const Sidebar = function ({
                   <div className="space-y-1">
                     {navigation &&
                       navigation.map((item, i) => (
-                        <a
+                        <CustomLink
                           key={`nav1${i}`}
                           href={item.href}
-                          className={classNames(
-                            item.href === router.asPath
-                              ? "bg-purple-50 border-purple-600 text-purple-600"
-                              : "border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                            "group border-l-4 py-2 px-3 flex items-center text-base font-medium"
-                          )}
+                          router={router}
                           aria-current={
                             item.href === router.asPath ? "page" : undefined
                           }
+                          className={classNames(
+                            item.href === router.asPath
+                              ? activeLinkStyle ||
+                                  "border-l-4 bg-purple-50 border-purple-600 text-purple-600"
+                              : linkStyle ||
+                                  "text-gray-600 hover:bg-gray-50 hover:text-gray-900 group py-2 px-3 flex items-center text-base font-medium",
+                            "group py-2 px-3 flex items-center text-base font-medium"
+                          )}
                         >
-                          <item.icon
-                            className={classNames(
-                              item.href === router.asPath
-                                ? "text-purple-500"
-                                : "text-gray-400 group-hover:text-gray-500",
-                              "mr-4 flex-shrink-0 h-6 w-6"
-                            )}
-                            aria-hidden="true"
-                          />
+                          {item.icon && (
+                            <item.icon
+                              className={classNames(
+                                item.href === router.asPath
+                                  ? activeIconStyle || "text-purple-500"
+                                  : iconStyle ||
+                                      "text-gray-400 group-hover:text-gray-500",
+                                "mr-3 flex-shrink-0 h-6 w-6"
+                              )}
+                              aria-hidden="true"
+                            />
+                          )}
                           {item.name}
-                        </a>
+                        </CustomLink>
                       ))}
                   </div>
                   <div className="mt-auto pt-10 space-y-1">
                     {secondaryNavigation &&
                       secondaryNavigation.map((item, i) => (
-                        <a
-                          key={`nav2${i}`}
-                          key={item.name}
+                        <CustomLink
+                          key={`secondnav1${i}`}
                           href={item.href}
-                          className="group border-l-4 border-transparent py-2 px-3 flex items-center text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                          router={router}
+                          className={classNames(
+                            item.href === router.asPath
+                              ? activeLinkStyle ||
+                                  "border-l-4 bg-purple-50 border-purple-600 text-purple-600"
+                              : linkStyle ||
+                                  "text-gray-600 hover:bg-gray-50 hover:text-gray-900 group py-2 px-3 flex items-center text-base font-medium",
+                            "group py-2 px-3 flex items-center text-base font-medium"
+                          )}
                         >
-                          <item.icon
-                            className="mr-4 h-6 w-6 text-gray-400 group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
+                          {item.icon && (
+                            <item.icon
+                              className={classNames(
+                                item.href === router.asPath
+                                  ? activeIconStyle || "text-purple-500"
+                                  : iconStyle ||
+                                      "text-gray-400 group-hover:text-gray-500",
+                                "mr-3 flex-shrink-0 h-6 w-6"
+                              )}
+                              aria-hidden="true"
+                            />
+                          )}
                           {item.name}
-                        </a>
+                        </CustomLink>
                       ))}
                   </div>
                 </nav>
@@ -133,51 +169,76 @@ const Sidebar = function ({
           <nav className="border-r border-gray-200 pt-5 pb-4 flex flex-col flex-grow overflow-y-auto">
             <div className="flex-shrink-0 px-4 flex items-center">
               <h3 className="h-8 w-auto font-bold text-2xl tracking-wide">
-                teurons
+                {logo}
               </h3>
             </div>
             <div className="flex-grow mt-5 flex flex-col">
               <div className="flex-1 space-y-1">
                 {navigation &&
                   navigation.map((item, i) => (
-                    <a
-                      key={`nav3${i}`}
+                    <CustomLink
+                      key={`nav2${i}`}
                       href={item.href}
+                      router={router}
+                      aria-current={
+                        item.href === router.asPath ? "page" : undefined
+                      }
                       className={classNames(
                         item.href === router.asPath
-                          ? "border-blue-600 text-blue-600"
-                          : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50",
-                        "group border-l-4 py-2 px-3 flex items-center text-sm font-medium"
+                          ? activeLinkStyle ||
+                              "border-l-4 bg-purple-50 border-purple-600 text-purple-600"
+                          : linkStyle ||
+                              "text-gray-600 hover:bg-gray-50 hover:text-gray-900 group py-2 px-3 flex items-center text-base font-medium",
+                        "group py-2 px-3 flex items-center text-base font-medium"
                       )}
                     >
-                      <item.icon
-                        className={classNames(
-                          item.href === router.asPath
-                            ? "text-blue-500"
-                            : "text-gray-400 group-hover:text-gray-500",
-                          "mr-3 flex-shrink-0 h-6 w-6"
-                        )}
-                        aria-hidden="true"
-                      />
+                      {item.icon && (
+                        <item.icon
+                          className={classNames(
+                            item.href === router.asPath
+                              ? activeIconStyle || "text-purple-500"
+                              : iconStyle ||
+                                  "text-gray-400 group-hover:text-gray-500",
+                            "mr-3 flex-shrink-0 h-6 w-6"
+                          )}
+                          aria-hidden="true"
+                        />
+                      )}
                       {item.name}
-                    </a>
+                    </CustomLink>
                   ))}
               </div>
             </div>
             <div className="flex-shrink-0 block w-full">
               {secondaryNavigation &&
                 secondaryNavigation.map((item, i) => (
-                  <a
-                    key={`nav4${i}`}
+                  <CustomLink
+                    key={`secondnav2${i}`}
                     href={item.href}
-                    className="group border-l-4 border-transparent py-2 px-3 flex items-center text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    router={router}
+                    className={classNames(
+                      item.href === router.asPath
+                        ? activeLinkStyle ||
+                            "border-l-4 bg-purple-50 border-purple-600 text-purple-600"
+                        : linkStyle ||
+                            "text-gray-600 hover:bg-gray-50 hover:text-gray-900 group py-2 px-3 flex items-center text-base font-medium",
+                      "group py-2 px-3 flex items-center text-base font-medium"
+                    )}
                   >
-                    <item.icon
-                      className="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6"
-                      aria-hidden="true"
-                    />
+                    {item.icon && (
+                      <item.icon
+                        className={classNames(
+                          item.href === router.asPath
+                            ? activeIconStyle || "text-purple-500"
+                            : iconStyle ||
+                                "text-gray-400 group-hover:text-gray-500",
+                          "mr-3 flex-shrink-0 h-6 w-6"
+                        )}
+                        aria-hidden="true"
+                      />
+                    )}
                     {item.name}
-                  </a>
+                  </CustomLink>
                 ))}
             </div>
           </nav>
