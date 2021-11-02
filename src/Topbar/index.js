@@ -10,7 +10,15 @@ function classNames(...classes) {
 const Topbar = function ({
   logo = "",
   navigation = [],
-  customComponent = "",
+  userActionComponent = "",
+  LinkComponent = (props) => {
+    let { href, children, ...rest } = props;
+    return (
+      <a href={href} {...rest}>
+        {children}
+      </a>
+    );
+  },
   ...props
 }) {
   return (
@@ -50,7 +58,7 @@ const Topbar = function ({
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <LinkComponent
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -62,14 +70,14 @@ const Topbar = function ({
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </LinkComponent>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                {customComponent}
+                {userActionComponent}
               </div>
             </div>
           </div>
@@ -77,7 +85,7 @@ const Topbar = function ({
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item, i) => (
-                <a
+                <LinkComponent
                   key={item.name}
                   href={item.href}
                   className={classNames(
@@ -89,7 +97,7 @@ const Topbar = function ({
                   aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
-                </a>
+                </LinkComponent>
               ))}
             </div>
           </Disclosure.Panel>
