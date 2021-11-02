@@ -8,19 +8,25 @@ function classNames(...classes) {
 }
 
 const Topbar = function ({
-  logo = "Teurons",
+  logo = "",
   navigation = [],
   customComponent = "",
+  ...props
 }) {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure
+      as="nav"
+      className={"bg-white dark:bg-gray-800 shadow" || props.mainWrapperClasses}
+    >
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div
+            className={"w-full px-2 sm:px-6 lg:px-8" || props.webWrapperClasses}
+          >
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white dark:focus:ring-gray-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -31,7 +37,12 @@ const Topbar = function ({
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <div className="h-8 w-auto font-bold text-2xl tracking-wide">
+                  <div
+                    className={
+                      "h-8 w-auto font-bold text-2xl tracking-wide dark:text-white" ||
+                      props.logoStyles
+                    }
+                  >
                     {/* logo can be text or img or svg */}
                     {logo}
                   </div>
@@ -44,8 +55,8 @@ const Topbar = function ({
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "border-b-2 border-solid border-blue-400 -mb-3.5"
-                            : "text-gray-500 hover:text-black",
+                            ? "border-b-2 border-solid border-blue-400 dark:border-gray-100 -mb-3.5 dark:text-white"
+                            : "text-gray-500 dark:text-gray-200 hover:text-black dark:hover:text-white",
                           "px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -71,8 +82,8 @@ const Topbar = function ({
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-50"
-                      : "text-gray-500 hover:bg-gray-50 hover:text-black",
+                      ? "bg-gray-50 dark:bg-gray-900 dark:text-white"
+                      : "text-gray-500 hover:bg-gray-50 hover:text-black dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
