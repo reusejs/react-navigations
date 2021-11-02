@@ -16,12 +16,12 @@ const Topbar = function ({
   return (
     <Disclosure
       as="nav"
-      className={"bg-white dark:bg-gray-800 shadow" || props.mainWrapperClasses}
+      className={props.mainWrapperClasses || "bg-white dark:bg-gray-800 shadow"}
     >
       {({ open }) => (
         <>
           <div
-            className={"w-full px-2 sm:px-6 lg:px-8" || props.webWrapperClasses}
+            className={props.webWrapperClasses || "w-full px-2 sm:px-6 lg:px-8"}
           >
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
