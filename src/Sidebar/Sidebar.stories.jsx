@@ -33,7 +33,7 @@ Default.args = {
     { name: "Logout", href: "/logout", icon: CogIcon },
   ],
   router: { asPath: "/" },
-  // CustomLink: MyLink,
+  // LinkComponent: MyLink,
   // linkStyle: "text-purple-600",
   // activeLinkStyle: "bg-red-50 red-purple-600 text-red-600",
   // iconStyle: "",

@@ -27,7 +27,7 @@ const Sidebar = function ({
   activeLinkStyle,
   iconStyle,
   activeIconStyle,
-  CustomLink = DefaultLink,
+  LinkComponent = DefaultLink,
 }) {
   return (
     <>
@@ -88,7 +88,7 @@ const Sidebar = function ({
                   <div className="space-y-1">
                     {navigation &&
                       navigation.map((item, i) => (
-                        <CustomLink
+                        <LinkComponent
                           key={`nav1${i}`}
                           href={item.href}
                           router={router}
@@ -117,13 +117,13 @@ const Sidebar = function ({
                             />
                           )}
                           {item.name}
-                        </CustomLink>
+                        </LinkComponent>
                       ))}
                   </div>
                   <div className="mt-auto pt-10 space-y-1">
                     {secondaryNavigation &&
                       secondaryNavigation.map((item, i) => (
-                        <CustomLink
+                        <LinkComponent
                           key={`secondnav1${i}`}
                           href={item.href}
                           router={router}
@@ -149,7 +149,7 @@ const Sidebar = function ({
                             />
                           )}
                           {item.name}
-                        </CustomLink>
+                        </LinkComponent>
                       ))}
                   </div>
                 </nav>
@@ -176,7 +176,7 @@ const Sidebar = function ({
               <div className="flex-1 space-y-1">
                 {navigation &&
                   navigation.map((item, i) => (
-                    <CustomLink
+                    <LinkComponent
                       key={`nav2${i}`}
                       href={item.href}
                       router={router}
@@ -205,14 +205,14 @@ const Sidebar = function ({
                         />
                       )}
                       {item.name}
-                    </CustomLink>
+                    </LinkComponent>
                   ))}
               </div>
             </div>
             <div className="flex-shrink-0 block w-full">
               {secondaryNavigation &&
                 secondaryNavigation.map((item, i) => (
-                  <CustomLink
+                  <LinkComponent
                     key={`secondnav2${i}`}
                     href={item.href}
                     router={router}
@@ -238,7 +238,7 @@ const Sidebar = function ({
                       />
                     )}
                     {item.name}
-                  </CustomLink>
+                  </LinkComponent>
                 ))}
             </div>
           </nav>
