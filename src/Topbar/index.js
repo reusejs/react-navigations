@@ -43,7 +43,7 @@ const Topbar = function ({
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-center h-full sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
                   <div
                     className={
@@ -55,17 +55,17 @@ const Topbar = function ({
                     {logo}
                   </div>
                 </div>
-                <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                <div className="hidden h-full sm:block sm:ml-6">
+                  <div className="flex h-full items-center space-x-4">
                     {navigation.map((item) => (
                       <LinkComponent
                         key={item.name}
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "border-b-2 border-solid border-blue-400 dark:border-gray-100 -mb-3.5 dark:text-white"
+                            ? "border-b-2 border-solid border-blue-400 dark:border-gray-100  dark:text-white"
                             : "text-gray-500 dark:text-gray-200 hover:text-black dark:hover:text-white",
-                          "px-3 py-2 text-sm font-medium"
+                          "px-3 py-2 text-sm font-medium h-full flex items-center"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >

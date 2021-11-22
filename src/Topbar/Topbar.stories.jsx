@@ -28,7 +28,11 @@ Default.args = {
   ),
 };
 
-const DarkTemplate = (args) => <div class="dark"><Topbar {...args} /></div>;
+const DarkTemplate = (args) => (
+  <div class="dark">
+    <Topbar {...args} />
+  </div>
+);
 
 export const Dark = DarkTemplate.bind({});
 
