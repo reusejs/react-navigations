@@ -12,11 +12,17 @@ const Topbar = function ({
   navigation = [],
   userActionComponent = "",
   LinkComponent = (props) => {
-    let { href, children, ...rest } = props;
+    let { href, children, isLink, ...rest } = props;
     return (
-      <a href={href} {...rest}>
-        {children}
-      </a>
+      <>
+        {isLink ? (
+          <a href={href} {...rest}>
+            {children}
+          </a>
+        ) : (
+          <span {...rest}>{children}</span>
+        )}
+      </>
     );
   },
   ...props
@@ -68,6 +74,7 @@ const Topbar = function ({
                           "px-3 py-2 text-sm font-medium h-full flex items-center"
                         )}
                         aria-current={item.current ? "page" : undefined}
+                        isLink={item.isLink === false ? item.isLink : true}
                       >
                         {item.name}
                       </LinkComponent>

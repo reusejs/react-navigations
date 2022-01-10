@@ -6,6 +6,22 @@ export default {
   component: Topbar,
 };
 
+const MoreItem = () => {
+  let items = [
+    { label: "Environments", href: "/environments", active: false },
+    { label: "Providers", href: "/providers", active: false },
+  ];
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>
+          <a href={item.href}>{item.label}</a>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 const Template = (args) => <Topbar {...args} />;
 export const Default = Template.bind({});
 
@@ -15,7 +31,13 @@ Default.args = {
     { name: "Dashboard", href: "#", current: true },
     { name: "Team", href: "#", current: false },
     { name: "Projects", href: "#", current: false },
-    { name: "Calendar", href: "#", current: false },
+    { name: "Calendar", href: "#", current: false, isLink: false },
+    {
+      name: <MoreItem />,
+      href: "#",
+      current: false,
+      isLink: false,
+    },
   ],
   customComponent: (
     <img
@@ -42,7 +64,7 @@ Dark.args = {
     { name: "Dashboard", href: "#", current: true },
     { name: "Team", href: "#", current: false },
     { name: "Projects", href: "#", current: false },
-    { name: "Calendar", href: "#", current: false },
+    { name: "Calendar", href: "#", current: false, isLink: false },
   ],
   customComponent: (
     <img
