@@ -65,7 +65,7 @@ const Topbar = function ({
                   <div className="flex h-full items-center space-x-4">
                     {navigation.map((item) => (
                       <LinkComponent
-                        key={item.name}
+                        key={item.uniqueId ? item.uniqueId : item.name}
                         href={item.href}
                         className={classNames(
                           item.current
